@@ -2,16 +2,16 @@
   <main>
     <section>
       <template v-if="error.statusCode === 404">
-        <h1 class="title">{{ error.message || 'Page Not Found' }}</h1>
+        <h1 class="title">{{ error.message || 'Sidan hittades inte' }}</h1>
         <h2 class="subtitle">404</h2>
-        <p class="mb-4">Looks like you've followed a broken link or entered a URL that doesn't exist on this site.</p>
+        <p class="mb-4">Det verkar som att du följde en felaktig länk eller skrev en URL som inte existerar.</p>
       </template>
       <template v-else>
-        <h1 class="title">An error occurred</h1>
-        <p class="mb-4">Looks like you've followed a broken link or entered a URL that doesn't exist on this site.</p>
+        <h1 class="title">Ett fel uppstod</h1>
+        <p class="mb-4">Det verkar som att du följde en felaktig länk eller skrev en URL som inte existerar.</p>
       </template>
       <nav class="mt-12" aria-label="go to home">
-        <router-back to="/" class="block"/>
+        <router-back to="/" class="block" />
       </nav>
     </section>
   </main>
@@ -20,6 +20,6 @@
 <script>
 export default {
   name: 'error',
-  props: ['error']
+  props: ['error'],
 }
 </script>

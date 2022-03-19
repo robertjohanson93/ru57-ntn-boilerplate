@@ -15,7 +15,7 @@ export default {
       process.env.NODE_ENV === 'production'
         ? process.env.URL || 'http://createADotEnvFileAndSetURL'
         : 'http://localhost:3000',
-    lang: SITE_INFO.sitelang || 'en-US',
+    lang: SITE_INFO.sitelang || 'sv-SE',
   },
   /*
    ** Headers of the page
@@ -48,7 +48,8 @@ export default {
         media: 'print',
         onload: `this.media='all'`,
       },
-    ], // ? Imports the font 'Inter', can be optimized by the netlify plugin 'Subfont' by uncommenting it in `netlify.toml`
+    ],
+    // ? Imports the font 'Inter', can be optimized by the netlify plugin 'Subfont' by uncommenting it in `netlify.toml`
     noscript: [
       {
         innerHTML:
@@ -87,7 +88,7 @@ export default {
         'postcss-preset-env': postcssPresetEnv({
           stage: 1,
           features: {
-            'nesting-rules': false,
+            'nesting-rules': true,
           },
         }),
         'postcss-easing-gradients': postcssEasingGradients,

@@ -19,6 +19,7 @@
     "nuxt": "^2.15.8"
   },
   "devDependencies": {
+    "@mdi/font": "^6.5.95",
     "@nuxtjs/color-mode": "^2.1.1",
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/svg": "^0.3.0",
@@ -29,8 +30,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "netlify-cli": "^7.0.0",
     "nuxt-purgecss": "^1.0.0",
-    "postcss": "^8.3.11",
+    "postcss": "^8.4.12",
     "postcss-easing-gradients": "^3.0.1",
+    "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.4.2",
     "prettier": "^2.4.1",
     "vue-content-placeholders": "^0.2.1"

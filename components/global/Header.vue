@@ -1,23 +1,82 @@
 <template>
-  <nav class="scrim-bg fixed z-40 top-0 inset-x-0 pt-3 px-3" aria-label="Main Menu">
-    <v-menu offset-y>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn color="primary" dark v-bind="attrs" v-on="on"> Meny </v-btn>
-      </template>
-      <v-list>
-        <!--
-        <v-list-item v-for="(item, index) in items" :key="index">
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
-         -->
-      </v-list>
-    </v-menu>
+  <nav class="bg-gray-800">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center justify-between">
+          <div class="flex-shrink-0">
+            <a href="/"><img class="h-8 w-8" src="../../static/icon.png" alt="RU57 logo" /></a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline">
+              <a
+                href="/"
+                class="ml-4 px-3 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >Start</a
+              >
+              <a
+                href="/blog"
+                class="ml-4 px-3 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >Blog</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden justify-end">
+          <!-- Mobile menu button -->
+          <button
+            @click="toggle"
+            class="inline-flex items-center justify-center p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white"
+          >
+            <svg
+              :class="[isOpen ? 'hidden' : 'block', 'h-6 w-6']"
+              stroke="currentColor"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg
+              :class="[isOpen ? 'block' : 'hidden', 'h-6 w-6']"
+              stroke="currentColor"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div :class="[isOpen ? '' : 'hidden', 'md:hidden']">
+      <div class="px-2 pt-2 pb-3 sm:px-3">
+        <a
+          href="/"
+          class="mt-1 block px-3 py-2 rounded-full text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+          >Start</a
+        >
+        <a
+          href="/blog"
+          class="mt-1 block px-3 py-2 rounded-full text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+          >Blog</a
+        >
+      </div>
+    </div>
   </nav>
 </template>
 
 <script>
 export default {
   name: 'Header',
+  data() {
+    return {
+      isOpen: false,
+    }
+  },
+  methods: {
+    toggle() {
+      this.isOpen = !this.isOpen
+    },
+  },
 }
 </script>
 
@@ -52,6 +111,10 @@ export default {
   & .nuxt-link-exact-active {
     @apply text-primary-700 border-gray-600 bg-gray-100;
   }
+}
+
+.show {
+  display: inline-block;
 }
 
 /* Need two because of smoother switching between color modes */
