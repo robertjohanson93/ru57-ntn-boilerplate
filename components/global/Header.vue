@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-gray-800">
+  <nav class="bg-white">
     <div class="max-w-5xl mx-auto">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center justify-between">
@@ -10,12 +10,12 @@
             <div class="ml-10 flex items-baseline">
               <a
                 href="/"
-                class="ml-4 px-3 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                class="ml-4 px-3 py-2 bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 hover:border-primary rounded-full"
                 >Start</a
               >
               <a
                 href="/blog"
-                class="ml-4 px-3 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                class="ml-4 px-3 py-2 bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 hover:border-primary rounded-full"
                 >Blog</a
               >
             </div>
@@ -25,7 +25,7 @@
           <!-- Mobile menu button -->
           <button
             @click="toggle"
-            class="inline-flex items-center justify-center p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white"
+            class="inline-flex items-center justify-center p-2 rounded-full text-gray-050 hover:text-primary-200 focus:outline-none focus:text-primary-100"
           >
             <svg
               :class="[isOpen ? 'hidden' : 'block', 'h-6 w-6']"
@@ -51,12 +51,12 @@
       <div class="px-2 pt-2 pb-3 sm:px-3">
         <a
           href="/"
-          class="mt-1 block px-3 py-2 rounded-full text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+          class="mt-1 block px-3 py-2 bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 hover:border-primary rounded-full"
           >Start</a
         >
         <a
           href="/blog"
-          class="mt-1 block px-3 py-2 rounded-full text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+          class="mt-1 block px-3 py-2 bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 hover:border-primary rounded-full"
           >Blog</a
         >
       </div>

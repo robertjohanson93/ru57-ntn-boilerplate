@@ -52,22 +52,15 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
-  - name: 'projects'
-    label: 'Projects'
-    label_singular: 'Project'
-    folder: 'content/projects'
+  - name: 'teams'
+    label: 'Teams'
+    label_singular: 'Team'
+    folder: 'content/teams'
     create: true
     format: 'frontmatter'
     slug: '{{slug}}'
-    preview_path: 'projects/{{slug}}'
+    preview_path: 'teams/{{slug}}'
     fields:
-      - {
-          label: 'Project Category',
-          name: 'category',
-          widget: 'select',
-          default: 'animals',
-          options: [{ label: 'Animals', value: 'animals' }, { label: 'Food', value: 'food' }],
-        }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string', required: false }
       - { label: 'Cover Image', name: 'cover', widget: 'image', required: false, allow_multiple: false }
