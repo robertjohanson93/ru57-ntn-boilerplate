@@ -7,7 +7,7 @@
           class="card card--clickable rounded overflow-hidden shadow-lg border border-primary-800"
         >
           <template v-if="postType === 'teams'">
-            <img v-if="post.cover" class="px-4 py-4" :src="post.cover" />
+            <img v-if="post.cover" class="w-full px-4 py-4" :src="post.cover" />
             <div class="flex flex-col px-4 py-4">
               <h3 class="font-bold text-xl mb-2">{{ post.title }}</h3>
               <p class="flex-1 text-gray-700 text-base">
