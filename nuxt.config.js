@@ -144,8 +144,4 @@ export default {
       ogImage: '/preview.jpg',
     },
   },
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-    baseURL: process.env.API_URL,
-  },
 }

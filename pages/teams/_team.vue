@@ -48,13 +48,13 @@
           <ul v-for="league in user.leagues.h2h" :key="league.id">
             <li>{{ league.name }}</li>
           </ul>
-          <button
-            @click="$fetch"
-            class="button bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 border border-primary hover:border-primary rounded-full inline-flex items-center mt-8"
-          >
-            Uppdatera
-          </button>
         </div>
+        <button
+          @click="$fetch"
+          class="button bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 border border-primary hover:border-primary rounded-full inline-flex items-center mt-8"
+        >
+          Uppdatera
+        </button>
       </div>
     </section>
   </main>
@@ -77,7 +77,10 @@ export default {
     }
   },
   async fetch() {
-    this.user = await fetch('https://fantasy.allsvenskan.se/api/entry/1360/').then((res) => res.json())
+    const proxyUrl = 'https://strawberry-sundae-75499.herokuapp.com/'
+    let apiUrl = 'https://fantasy.allsvenskan.se/api/entry/1360/'
+    let url = proxyUrl + apiUrl
+    this.user = await fetch(url).then((res) => res.json())
   },
 }
 </script>
