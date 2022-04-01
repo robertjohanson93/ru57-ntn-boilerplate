@@ -1,5 +1,6 @@
 ---
 title: Bobs lag
+fantasyId: 1360
 description: Lorem ipsum dolor sit amet
 cover: https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg
 ---
