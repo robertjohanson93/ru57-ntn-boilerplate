@@ -77,7 +77,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxt/content', 'nuxt-purgecss'],
+  modules: ['@nuxt/content', 'nuxt-purgecss', '@nuxtjs/axios'],
   /*
    ** Build configuration
    */
@@ -143,5 +143,9 @@ export default {
       ogHost: process.env.URL,
       ogImage: '/preview.jpg',
     },
+  },
+  axios: {
+    // See https://github.com/nuxt-community/axios-module#options
+    baseURL: process.env.API_URL,
   },
 }
