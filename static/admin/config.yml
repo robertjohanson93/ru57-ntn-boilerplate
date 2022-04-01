@@ -62,6 +62,7 @@ collections:
     preview_path: 'teams/{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Fantasy Id', name: 'fantasyId', widget: 'number', required: false }
       - { label: 'Description', name: 'description', widget: 'string', required: false }
       - { label: 'Cover Image', name: 'cover', widget: 'image', required: false, allow_multiple: false }
       - { label: 'Content', name: 'body', widget: 'markdown', required: false }
