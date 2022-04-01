@@ -5,22 +5,30 @@
 
       <article class="max-w-5xl mx-auto mt-12 mb-12">
         <h1 class="uppercase font-black text-center mb-12">{{ post.title }}</h1>
-        <div class="w-full border-2 border-primary rounded-lg flex flex-row justify-center px-4 py-4">
-          <div class="flex flex-col justify-center text-center border-r border-grey-500">
+        <div class="w-full border-2 border-primary rounded-lg flex sm:flex-row flex-col justify-center px-4 py-4">
+          <div
+            class="history_container flex flex-col justify-center text-center sm:border-r sm:border-b-0 border-b sm:pb-0 sm:pt-0 pb-4 pt-4 border-grey-500"
+          >
             <p>Placering</p>
-            <p class="text-4xl text-primary font-black">1</p>
+            <p class="text-4xl text-primary font-black">-</p>
           </div>
-          <div class="flex flex-col justify-center text-center border-r border-grey-500">
+          <div
+            class="history_container flex flex-col justify-center text-center sm:border-r sm:border-b-0 border-b sm:pb-0 sm:pt-0 pb-4 pt-4 border-grey-500"
+          >
             <p>Poäng Dannes</p>
-            <p class="text-4xl text-primary font-black">27</p>
+            <p class="text-4xl text-primary font-black">-</p>
           </div>
-          <div class="flex flex-col justify-center text-center border-r border-grey-500">
+          <div
+            class="history_container flex flex-col justify-center text-center sm:border-r sm:border-b-0 border-b sm:pb-0 sm:pt-0 pb-4 pt-4 border-grey-500"
+          >
             <p>OR</p>
-            <p class="text-4xl text-primary font-black">3 000</p>
+            <p class="text-4xl text-primary font-black">-</p>
           </div>
-          <div class="flex flex-col justify-center text-center">
+          <div
+            class="history_container flex flex-col justify-center text-center sm:border-r sm:border-b-0 border-b sm:pb-0 sm:pt-0 pb-4 pt-4 border-grey-500"
+          >
             <p>Poäng OR</p>
-            <p class="text-4xl text-primary font-black">538</p>
+            <p class="text-4xl text-primary font-black">-</p>
           </div>
         </div>
 
@@ -28,9 +36,29 @@
         <div v-if="post.gallery" class="nuxt-content">
           <img v-for="image in post.gallery" class="image" :key="image.id" :src="image" />
         </div>
+
+        <h2 class="mb-4">Historik</h2>
+        <p v-if="$fetchState.pending">Hämtar historik...</p>
+        <p v-else-if="$fetchState.error">Ett fel uppstod</p>
+        <div
+          v-else
+          class="w-full border-2 border-primary rounded-lg flex sm:flex-row flex-col justify-center px-4 py-4"
+        >
+          <div
+            v-for="year in history.past"
+            :key="year.id"
+            class="history_container flex flex-col justify-center text-center sm:border-r sm:border-b-0 border-b sm:pb-0 sm:pt-0 pb-4 pt-4 border-grey-500"
+          >
+            <p class="font-bold">{{ year.season_name }}</p>
+            <p>Poäng</p>
+            <p class="text-4xl text-primary font-black">{{ year.total_points }}</p>
+            <p>Rank</p>
+            <p class="text-4xl text-primary font-black">{{ year.rank }}</p>
+          </div>
+        </div>
       </article>
     </section>
-    <section>
+    <section class="hidden">
       <div>
         <p v-if="$fetchState.pending">Hämtar laginfo...</p>
         <p v-else-if="$fetchState.error">Ett fel uppstod</p>
@@ -50,6 +78,7 @@
           </ul>
         </div>
         <button
+          id="fetchButton"
           @click="$fetch"
           class="button bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 border border-primary hover:border-primary rounded-full inline-flex items-center mt-8"
         >
@@ -74,13 +103,29 @@ export default {
   data() {
     return {
       user: [],
+      history: [],
     }
   },
   async fetch() {
-    const proxyUrl = 'https://strawberry-sundae-75499.herokuapp.com/'
-    let apiUrl = 'https://fantasy.allsvenskan.se/api/entry/1360/'
-    let url = proxyUrl + apiUrl
-    this.user = await fetch(url).then((res) => res.json())
+    try {
+      this.user = await fetch(
+        'https://strawberry-sundae-75499.herokuapp.com/https://fantasy.allsvenskan.se/api/entry/' + this.post.fantasyId
+      ).then((res) => res.json())
+      this.history = await fetch(
+        'https://strawberry-sundae-75499.herokuapp.com/https://fantasy.allsvenskan.se/api/entry/' +
+          this.post.fantasyId +
+          '/history/'
+      ).then((res) => res.json())
+    } catch (e) {
+      error({ message: 'Data not found' })
+    }
   },
+}
+
+if (process.browser) {
+  window.onNuxtReady((app) => {
+    const button = document.getElementById('fetchButton')
+    button.click()
+  })
 }
 </script>

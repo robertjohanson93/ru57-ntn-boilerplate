@@ -16,7 +16,7 @@
               <a
                 href="/blog"
                 class="ml-4 px-3 py-2 bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 hover:border-primary rounded-full"
-                >Blog</a
+                >Nyheter</a
               >
             </div>
           </div>
@@ -57,7 +57,7 @@
         <a
           href="/blog"
           class="mt-1 block px-3 py-2 bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 hover:border-primary rounded-full"
-          >Blog</a
+          >Nyheter</a
         >
       </div>
     </div>
