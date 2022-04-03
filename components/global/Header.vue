@@ -1,21 +1,26 @@
 <template>
   <nav class="bg-white">
     <div class="max-w-5xl mx-auto">
-      <div class="flex items-center justify-between h-16">
+      <div class="flex items-center justify-between py-4">
         <div class="flex items-center justify-between">
           <div class="flex-shrink-0">
-            <a href="/"><img class="h-8 w-8" src="../../static/icon.png" alt="RU57 logo" /></a>
+            <a href="/" class="flex flex-row items-center nav__logo"
+              ><img class="h-16 w-16 mr-4" src="../../static/img/toast.png" alt="RU57 logo" /><span
+                class="text-gray-900 font-black text-4xl"
+                >RU57</span
+              ></a
+            >
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline">
               <a
-                href="/"
-                class="ml-4 px-3 py-2 bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 hover:border-primary rounded-full"
-                >Start</a
+                href="/teams"
+                class="ml-4 px-3 py-2 text-gray-900 font-semibold uppercase py-2 px-4 border-b-4 border-transparent hover:border-green-600"
+                >Lagen</a
               >
               <a
                 href="/blog"
-                class="ml-4 px-3 py-2 bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 hover:border-primary rounded-full"
+                class="ml-4 px-3 py-2 text-gray-900 font-semibold uppercase py-2 px-4 border-b-4 border-transparent hover:border-green-600"
                 >Nyheter</a
               >
             </div>
@@ -25,7 +30,7 @@
           <!-- Mobile menu button -->
           <button
             @click="toggle"
-            class="inline-flex items-center justify-center p-2 rounded-full text-gray-050 hover:text-primary-200 focus:outline-none focus:text-primary-100"
+            class="inline-flex items-center justify-center p-2 rounded-full text-green-600 hover:text-green-500 focus:outline-none focus:text-green-500"
           >
             <svg
               :class="[isOpen ? 'hidden' : 'block', 'h-6 w-6']"
@@ -48,15 +53,15 @@
       </div>
     </div>
     <div :class="[isOpen ? '' : 'hidden', 'md:hidden']">
-      <div class="px-2 pt-2 pb-3 sm:px-3">
+      <div class="px-2 pt-2 pb-3 sm:px-3 flex flex-col">
         <a
-          href="/"
-          class="mt-1 block px-3 py-2 bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 hover:border-primary rounded-full"
-          >Start</a
+          href="/teams"
+          class="px-3 py-2 text-gray-900 font-semibold uppercase py-2 px-4 border-b-4 border-transparent hover:border-green-600"
+          >Lagen</a
         >
         <a
           href="/blog"
-          class="mt-1 block px-3 py-2 bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 hover:border-primary rounded-full"
+          class="px-3 py-2 text-gray-900 font-semibold uppercase py-2 px-4 border-b-4 border-transparent hover:border-green-600"
           >Nyheter</a
         >
       </div>

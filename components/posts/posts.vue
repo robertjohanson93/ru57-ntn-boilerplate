@@ -1,27 +1,24 @@
 <template>
   <div v-if="posts.length > 0" class="my-8">
     <div class="flex flex-wrap sm:-mx-2">
-      <div v-for="(post, index) in posts" :key="index" class="sm:w-1/2 w-full px-2 py-2">
+      <div v-for="(post, index) in posts" :key="index" class="sm:w-1/3 w-full px-2 py-2">
         <nuxt-link
           :to="`${post.slug}`"
-          class="card card--clickable rounded overflow-hidden shadow-lg border border-primary-800"
+          class="card card--clickable rounded overflow-hidden shadow-lg bg-white text-center border border-transparent hover:border-2 hover:border-green-600"
         >
           <template v-if="postType === 'teams'">
-            <img v-if="post.cover" class="w-full px-4 py-4" :src="post.cover" />
+            <img v-if="post.cover" class="w-1/2 px-4 py-4 mx-auto" :src="post.cover" />
             <div class="flex flex-col px-4 py-4">
-              <h3 class="font-bold text-xl mb-2">{{ post.title }}</h3>
-              <p class="flex-1 text-gray-700 text-base">
-                {{ post.description }}
-              </p>
+              <h3 class="font-bold text-xl text-gray-900 mb-2">{{ post.title }}</h3>
             </div>
           </template>
 
           <template v-else>
             <span class="w-full">
               <span class="flex justify-between align-baseline px-4 py-4">
-                <h3 class="font-bold text-xl mb-2">{{ post.title }}</h3>
+                <h3 class="font-bold text-gray-900 text-xl mb-2">{{ post.title }}</h3>
               </span>
-              <p class="mt-2 px-4 pb-4">{{ post.description }}</p>
+              <p class="mt-2 px-4 pb-4 text-gray-700">{{ post.description }}</p>
             </span>
           </template>
         </nuxt-link>

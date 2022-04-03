@@ -2430,10 +2430,10 @@
         <circle cx="36.25" cy="215.21" r="36.25" fill="#2e7c8d" opacity="0.1" />
       </svg>
       <div class="Iam">
-        <h1 class="text-center text-primary-050 sm:text-5xl uppercase">
+        <h1 class="text-center text-gray-900 sm:text-5xl uppercase">
           Dannes Pannband 4: Ta ner
           <b>
-            <div class="innerIam self-center flex flex-col items-center justify-center sm:mt-1.5">
+            <div class="innerIam self-center flex flex-col items-center justify-center sm:mt-1.5 text-green-600">
               Ekborg<br />
               Bob<br />
               Junior<br />
@@ -2444,10 +2444,7 @@
           </b>
         </h1>
       </div>
-      <a
-        href="/teams"
-        class="button bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 border border-primary hover:border-primary rounded-full inline-flex items-center mt-8"
-        data-v-1263e8ee=""
+      <a href="/teams" class="btn inline-flex items-center mt-8" data-v-1263e8ee=""
         ><svg xmlns="http://www.w3.org/2000/svg" height="1rem" viewBox="0 0 24 24" width="1rem" fill="currentColor">
           <path d="M0 0h24v24H0V0z" fill="none" />
           <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" />

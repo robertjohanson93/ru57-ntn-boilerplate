@@ -2,7 +2,7 @@
   <main>
     <section v-if="post">
       <article>
-        <nav class="mb-8 pl-0" aria-label="go back">
+        <nav class="mb-8 pl-0 text-green-600" aria-label="go back">
           <router-back class="block" />
         </nav>
         <h5
@@ -11,8 +11,8 @@
         >
           {{ formatDate(post.createdAt) }}
         </h5>
-        <h1 class="">{{ post.title }}</h1>
-        <p class="mt-1 mb-4 text-primary-600 dark:text-primary-400">{{ post.description }}</p>
+        <h1 class="text-gray-900">{{ post.title }}</h1>
+        <p class="mt-1 mb-4 text-gray-500 dark:text-primary-400">{{ post.description }}</p>
         <nuxt-content :document="post" />
       </article>
     </section>

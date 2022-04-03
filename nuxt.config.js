@@ -48,6 +48,12 @@ export default {
         media: 'print',
         onload: `this.media='all'`,
       },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap',
+        media: 'print',
+        onload: `this.media='all'`,
+      },
     ],
     // ? Imports the font 'Inter', can be optimized by the netlify plugin 'Subfont' by uncommenting it in `netlify.toml`
     noscript: [

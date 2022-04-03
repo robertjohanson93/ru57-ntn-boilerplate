@@ -1,27 +1,53 @@
 <template>
   <main>
     <section v-if="posts" class="w-full max-w-5xl mx-auto">
-      <h1 class="title mb-12">Dannes Pannband 4: Ta ner Ekborg</h1>
-      <!--
-      <div class="hidden">
-        <p v-if="$fetchState.pending">Hämtar laginfo...</p>
-        <p v-else-if="$fetchState.error">Ett fel uppstod</p>
-        <div v-else v-for="team in league.new_entries.results" :key="team.id">
-          <p>{{ team.player_first_name }} {{ team.player_last_name }}</p>
-        </div>
-      </div>
-      -->
+      <h1 class="text-gray-900 mb-12">Dannes Pannband 4: Ta ner Ekborg</h1>
       <posts post-type="teams" :amount="10" />
     </section>
-    <!--
-    <button
-      id="fetchButton"
-      @click="$fetch"
-      class="hidden button bg-transparent hover:bg-primary-900 text-primary-050 font-semibold uppercase py-2 px-4 border border-primary hover:border-primary rounded-full inline-flex items-center mt-8"
-    >
-      Uppdatera
-    </button>
-    -->
+    <section class="w-full max-w-5xl mx-auto">
+      <div class="w-full">
+        <p v-if="$fetchState.pending">Hämtar laginfo...</p>
+        <p v-else-if="$fetchState.error">Ett fel uppstod</p>
+        <div v-else>
+          <h3 class="mb-4">Spelschema</h3>
+          <div class="flex flex-row bg-white shadow-lg" v-for="(meeting, index) in league.results" :key="meeting.id">
+            <div v-if="index < 3" class="w-1/2 flex flex-row p-4 items-center border-b border-gray-200">
+              <div class="team w-1/2 flex flex-col justify-center text-center border-r border-gray-200">
+                <p class="font-bold">{{ meeting.entry_1_name }}</p>
+                <p class="mt-0 font-bold text-green-600">{{ meeting.entry_1_points }}</p>
+              </div>
+              <div class="separator py-2 px-4 text-gray-300 mx-4">
+                <p class="text-gray-300">GW{{ meeting.event }}</p>
+              </div>
+              <div class="team w-1/2 flex flex-col justify-center text-center border-l border-gray-200">
+                <img />
+                <p class="font-bold">{{ meeting.entry_2_name }}</p>
+                <p class="mt-0 font-bold text-green-600">{{ meeting.entry_2_points }}</p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="flex flex-row bg-white shadow-lg" v-for="(meeting, index) in league.results" :key="meeting.id">
+            <div v-if="index > 3 && index < 7" class="w-1/2 flex flex-row p-4 items-center border-b border-gray-200">
+              <div class="team w-1/2 flex flex-col justify-center text-center">
+                <p class="font-bold">{{ meeting.entry_1_name }}</p>
+                <p class="mt-0 font-bold text-green-600">{{ meeting.entry_1_points }}</p>
+              </div>
+              <div class="separator border border-gray-200 py-2 px-4 text-gray-300 mx-4">
+                <p class="text-gray-300">GW{{ meeting.event }}</p>
+              </div>
+              <div class="team w-1/2 flex flex-col justify-center text-center">
+                <p class="font-bold">{{ meeting.entry_2_name }}</p>
+                <p class="mt-0 font-bold text-green-600">{{ meeting.entry_2_points }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-1/3">
+        <button id="fetchButton" @click="$fetch" class="btn mt-8">Uppdatera</button>
+      </div>
+    </section>
   </main>
 </template>
 
@@ -36,8 +62,7 @@ export default {
     }
     return { posts }
   },
-  /**
-   * data() {
+  data() {
     return {
       league: [],
     }
@@ -45,22 +70,18 @@ export default {
   async fetch() {
     try {
       this.league = await fetch(
-        'https://strawberry-sundae-75499.herokuapp.com/https://fantasy.allsvenskan.se/api/leagues-h2h/1414/standings'
+        'https://strawberry-sundae-75499.herokuapp.com/https://fantasy.allsvenskan.se/api/leagues-h2h-matches/league/1414/'
       ).then((res) => res.json())
     } catch (e) {
       error({ message: 'League not found' })
     }
   },
-   */
 }
 
-/**
- *
- * if (process.browser) {
- * window.onNuxtReady((app) => {
- *  const button = document.getElementById('fetchButton')
- *    button.click()
- * })
- * }
- */
+if (process.browser) {
+  window.onNuxtReady((app) => {
+    const button = document.getElementById('fetchButton')
+    button.click()
+  })
+}
 </script>

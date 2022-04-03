@@ -4,30 +4,30 @@
       <img v-if="post.cover" class="mt-4 mb-4 w-full max-h-96 object-contain" :src="post.cover" />
 
       <article class="max-w-5xl mx-auto mt-12 mb-12">
-        <h1 class="uppercase font-black text-center mb-12">{{ post.title }}</h1>
-        <div class="w-full border-2 border-primary rounded-lg flex sm:flex-row flex-col justify-center px-4 py-4">
+        <h1 class="uppercase font-black text-center mb-12 text-gray-900">{{ post.title }}</h1>
+        <div class="w-full bg-white rounded-lg flex sm:flex-row flex-col justify-center px-4 py-4">
           <div
             class="history_container flex flex-col justify-center text-center sm:border-r sm:border-b-0 border-b sm:pb-0 sm:pt-0 pb-4 pt-4 border-grey-500"
           >
-            <p>Placering</p>
+            <p class="text-gray-900">Placering</p>
             <p class="text-4xl text-primary font-black">-</p>
           </div>
           <div
             class="history_container flex flex-col justify-center text-center sm:border-r sm:border-b-0 border-b sm:pb-0 sm:pt-0 pb-4 pt-4 border-grey-500"
           >
-            <p>Poäng Dannes</p>
+            <p class="text-gray-900">Poäng Dannes</p>
             <p class="text-4xl text-primary font-black">-</p>
           </div>
           <div
             class="history_container flex flex-col justify-center text-center sm:border-r sm:border-b-0 border-b sm:pb-0 sm:pt-0 pb-4 pt-4 border-grey-500"
           >
-            <p>OR</p>
+            <p class="text-gray-900">OR</p>
             <p class="text-4xl text-primary font-black">-</p>
           </div>
           <div
             class="history_container flex flex-col justify-center text-center sm:border-r sm:border-b-0 border-b sm:pb-0 sm:pt-0 pb-4 pt-4 border-grey-500"
           >
-            <p>Poäng OR</p>
+            <p class="text-gray-900">Poäng OR</p>
             <p class="text-4xl text-primary font-black">-</p>
           </div>
         </div>
@@ -37,22 +37,19 @@
           <img v-for="image in post.gallery" class="image" :key="image.id" :src="image" />
         </div>
 
-        <h2 class="mb-4">Historik</h2>
+        <h2 class="mb-4 text-gray-900">Historik</h2>
         <p v-if="$fetchState.pending">Hämtar historik...</p>
         <p v-else-if="$fetchState.error">Ett fel uppstod</p>
-        <div
-          v-else
-          class="w-full border-2 border-primary rounded-lg flex sm:flex-row flex-col justify-center px-4 py-4"
-        >
+        <div v-else class="w-full bg-white rounded-lg flex sm:flex-row flex-col justify-center px-4 py-4">
           <div
             v-for="year in history.past"
             :key="year.id"
-            class="history_container flex flex-col justify-center text-center sm:border-r sm:border-b-0 border-b sm:pb-0 sm:pt-0 pb-4 pt-4 border-grey-500"
+            class="history_container flex flex-col justify-center text-center sm:border-r sm:border-b-0 border-b sm:pb-0 sm:pt-0 pb-4 pt-4 border-grey-200"
           >
-            <p class="font-bold">{{ year.season_name }}</p>
-            <p>Poäng</p>
+            <p class="font-bold text-gray-900">{{ year.season_name }}</p>
+            <p class="text-gray-900">Poäng</p>
             <p class="text-4xl text-primary font-black">{{ year.total_points }}</p>
-            <p>Rank</p>
+            <p class="text-gray-900">Rank</p>
             <p class="text-4xl text-primary font-black">{{ year.rank }}</p>
           </div>
         </div>
@@ -62,21 +59,7 @@
       <div>
         <p v-if="$fetchState.pending">Hämtar laginfo...</p>
         <p v-else-if="$fetchState.error">Ett fel uppstod</p>
-        <div v-else>
-          <h1 class="mb-4">Laginfo</h1>
-          <ul class="mb-4">
-            <li>Id: {{ user.id }}</li>
-            <li>Namn: {{ user.player_first_name }} {{ user.player_last_name }}</li>
-          </ul>
-          <h1 class="mt-4 mb-4">Klassiska ligor</h1>
-          <ul v-for="league in user.leagues.classic" :key="league.id">
-            <li>{{ league.name }}</li>
-          </ul>
-          <h1 class="mt-4 mb-4">Head to head ligor</h1>
-          <ul v-for="league in user.leagues.h2h" :key="league.id">
-            <li>{{ league.name }}</li>
-          </ul>
-        </div>
+        <div v-else></div>
         <button
           id="fetchButton"
           @click="$fetch"
