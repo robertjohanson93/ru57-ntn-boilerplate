@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-      <div class="w-1/3">
+      <div class="w-1/3 hidden">
         <button id="fetchButton" @click="$fetch" class="btn mt-8">Uppdatera</button>
       </div>
     </section>
