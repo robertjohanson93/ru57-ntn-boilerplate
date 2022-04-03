@@ -11,15 +11,15 @@
         <div v-else>
           <h3 class="mb-4">Spelschema</h3>
           <div class="flex flex-row bg-white shadow-lg" v-for="(meeting, index) in league.results" :key="meeting.id">
-            <div v-if="index < 3" class="w-1/2 flex flex-row p-4 items-center border-b border-gray-200">
-              <div class="team w-1/2 flex flex-col justify-center text-center border-r border-gray-200">
+            <div v-if="index < 3" class="w-1/2 flex flex-row py-4 px-2 sm:px-4 items-center border-b border-gray-200">
+              <div class="team w-1/2 flex flex-col justify-center text-center">
                 <p class="font-bold">{{ meeting.entry_1_name }}</p>
                 <p class="mt-0 font-bold text-green-600">{{ meeting.entry_1_points }}</p>
               </div>
-              <div class="separator py-2 px-4 text-gray-300 mx-4">
+              <div class="separator py-2 px-4 text-gray-300 mx-0 sm:mx-4 border-r border-l border-gray-200">
                 <p class="text-gray-300">GW{{ meeting.event }}</p>
               </div>
-              <div class="team w-1/2 flex flex-col justify-center text-center border-l border-gray-200">
+              <div class="team w-1/2 flex flex-col justify-center text-center">
                 <img />
                 <p class="font-bold">{{ meeting.entry_2_name }}</p>
                 <p class="mt-0 font-bold text-green-600">{{ meeting.entry_2_points }}</p>
@@ -28,15 +28,18 @@
           </div>
           <br />
           <div class="flex flex-row bg-white shadow-lg" v-for="(meeting, index) in league.results" :key="meeting.id">
-            <div v-if="index > 3 && index < 7" class="w-1/2 flex flex-row p-4 items-center border-b border-gray-200">
-              <div class="team w-1/2 flex flex-col justify-center text-center border-r border-gray-200">
+            <div
+              v-if="index > 3 && index < 7"
+              class="w-1/2 flex flex-row py-4 px-2 sm:px-4 items-center border-b border-gray-200"
+            >
+              <div class="team w-1/2 flex flex-col justify-center text-center">
                 <p class="font-bold">{{ meeting.entry_1_name }}</p>
                 <p class="mt-0 font-bold text-green-600">{{ meeting.entry_1_points }}</p>
               </div>
-              <div class="separator py-2 px-4 text-gray-300 mx-4">
+              <div class="separator py-2 px-4 text-gray-300 mx-0 sm:mx-4 border-r border-l border-gray-200">
                 <p class="text-gray-300">GW{{ meeting.event }}</p>
               </div>
-              <div class="team w-1/2 flex flex-col justify-center text-center border-l border-gray-200">
+              <div class="team w-1/2 flex flex-col justify-center text-center">
                 <img />
                 <p class="font-bold">{{ meeting.entry_2_name }}</p>
                 <p class="mt-0 font-bold text-green-600">{{ meeting.entry_2_points }}</p>
